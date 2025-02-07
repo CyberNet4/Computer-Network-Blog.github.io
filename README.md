@@ -1,3 +1,5 @@
-Computer Networks Blog
+Computer Networks Blog Website
 --
-A Blog that talk about myself
+This project is all about setting up a website using GitHub Pages as the host and it demonstrates knowledge of networking concepts such as DNS, IP addresses, and protocols.
+--
+
