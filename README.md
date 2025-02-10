@@ -16,7 +16,9 @@ Created a project folder to put my file into.
 Set up these file index.html, styles.css using Visual Studio Code.
 
 Network Aspects
+--
 The site is accessible online, demonstrating knowledge of DNS, IP addresses, protocols, and HTTPS.
 
 Challenges
+--
 There were not that many challenges faced when i was setting up the website the only problem i had was how to set up the website on GitHub Pages but it was not hard to figure out.
