@@ -7,9 +7,11 @@ Project Overview
 This project is all about setting up a website using GitHub Pages as the host and it demonstrates knowledge of networking concepts such as DNS, IP addresses, and protocols.
 
 Domain and Hosting
+--
 The website is hosted on GitHub Pages
 
 Website Setup
+--
 Created a project folder to put my file into.
 Set up these file index.html, styles.css using Visual Studio Code.
 
