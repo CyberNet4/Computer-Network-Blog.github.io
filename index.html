@@ -40,22 +40,24 @@
         <p>&copy; 2025 My Blog. All rights reserved.</p>
     </footer>
     <script>
-        function toggleSidebar() {
-            var sidebar = document.getElementById("sidebar");
-            if (sidebar.style.display === "none" || sidebar.style.display === "") {
-                sidebar.style.display = "block";
-            } else {
-                sidebar.style.display = "none";
-            }
-        }
-        
-        function login() {
+     async function login() {
             let username = document.getElementById("username").value;
-            if (username) {
+            let password = document.getElementById("password").value;
+            
+            const response = await fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+            
+            const data = await response.json();
+            if (data.success) {
                 sessionStorage.setItem("user", username);
                 document.getElementById("login-container").style.display = "none";
                 document.getElementById("blog-container").style.display = "block";
                 document.getElementById("logout-btn").style.display = "block";
+            } else {
+                alert("Login failed!");
             }
         }
         
