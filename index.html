@@ -9,25 +9,31 @@
 <body>
     <header>
         <h1>Welcome to My Computer Network Blog</h1>
+        <button onclick="logout()" id="logout-btn" style="display:none;">Logout</button>
     </header>
     <nav>
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
     </nav>
-    <button class="toggle-sidebar" onclick="toggleSidebar()">Toggle Sidebar</button>
+  <button class="toggle-sidebar" onclick="toggleSidebar()">Toggle Sidebar</button>
     <div class="sidebar" id="sidebar">
         <h3>Sidebar</h3>
         <p>Additional content or links can go here.</p>
     </div>
-    <div class="container">
+    <div class="login-container" id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <button onclick="login()">Login</button>
+    </div>
+    <div class="container" id="blog-container" style="display:none;">
         <div class="post">
-            <h2>My First Blog Post</h2>
-            <p>This blog post will be where i will share stuff about myself. Stay tune for more posts below.</p>
+            <h2>First Blog Post</h2>
+            <p>This is an example of a blog post. You can add more posts below.</p>
         </div>
         <div class="post">
             <h2>Another Blog Post</h2>
-            <p>Here is where i am going to talk about myself.</p>
+            <p>Here is another example of a blog entry.</p>
         </div>
     </div>
     <footer>
@@ -40,6 +46,34 @@
                 sidebar.style.display = "block";
             } else {
                 sidebar.style.display = "none";
+            }
+        }
+        
+        function login() {
+            let username = document.getElementById("username").value;
+            if (username) {
+                sessionStorage.setItem("user", username);
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("blog-container").style.display = "block";
+                document.getElementById("logout-btn").style.display = "block";
+            }
+        }
+        
+        function logout() {
+            sessionStorage.removeItem("user");
+            document.getElementById("login-container").style.display = "block";
+            document.getElementById("blog-container").style.display = "none";
+            document.getElementById("logout-btn").style.display = "none";
+        }
+        
+        window.onload = function() {
+            let user = sessionStorage.getItem("user");
+            if (user) {
+                document.getElementById("login-container").style.display = "none";
+                document.getElementById("blog-container").style.display = "block";
+                document.getElementById("logout-btn").style.display = "block";
+            } else {
+                document.getElementById("login-container").style.display = "block";
             }
         }
     </script>
