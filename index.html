@@ -12,11 +12,11 @@
         <button onclick="logout()" id="logout-btn" style="display:none;">Logout</button>
     </header>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('about')">About</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
     </nav>
-  <button class="toggle-sidebar" onclick="toggleSidebar()">Toggle Sidebar</button>
+    <button class="toggle-sidebar" onclick="toggleSidebar()">Toggle Sidebar</button>
     <div class="sidebar" id="sidebar">
         <h3>Sidebar</h3>
         <p>Additional content or links can go here.</p>
@@ -24,23 +24,35 @@
     <div class="login-container" id="login-container">
         <h2>Login</h2>
         <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
         <button onclick="login()">Login</button>
     </div>
     <div class="container" id="blog-container" style="display:none;">
-        <div class="post">
-            <h2>First Blog Post</h2>
-            <p>This is an example of a blog post. You can add more posts below.</p>
+        <div id="home" class="content-section">
+            <h2>Home</h2>
+            <p>Welcome to my blog! Here you'll find articles on various topics that interest me. Stay tuned for updates!</p>
         </div>
-        <div class="post">
-            <h2>Another Blog Post</h2>
-            <p>Here is another example of a blog entry.</p>
+        <div id="about" class="content-section">
+            <h2>About</h2>
+            <p>This blog is a personal project where I share my thoughts, experiences, and insights on different subjects. Feel free to explore!</p>
+        </div>
+        <div id="contact" class="content-section">
+            <h2>Contact</h2>
+            <p>If you’d like to reach out, please email me at contact@myblog.com or follow me on social media.</p>
         </div>
     </div>
     <footer>
         <p>&copy; 2025 My Blog. All rights reserved.</p>
     </footer>
     <script>
-     async function login() {
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+        
+        async function login() {
             let username = document.getElementById("username").value;
             let password = document.getElementById("password").value;
             
